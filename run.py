@@ -207,8 +207,10 @@ def turn(board):
             turn(board)
         elif PLAYER_BOARD[row][column] == "X":
             board[row][column] = "X"
+            print("WE ARE HIT, FIRE BACK!")
         else:
             board[row][column] = "-"
+            print("THE COMPUTER MISSED, PHEW...")
 
 
 def start_game():
@@ -231,13 +233,14 @@ def start_game():
     while True:
         # Player turn
         while True:
-            print('Guess a battleship location')
+            print(PHASE)
+            print('GUESS A BATTLESHIP LOCATION CAPTAIN!\n')
             print_board(PLAYER_GUESS_BOARD)
             turn(PLAYER_GUESS_BOARD)
             time.sleep(2)
             break
         if hit_count(PLAYER_GUESS_BOARD) == 17:
-            print("You win!")
+            print("\u001b[32mYOU WON!\u001b[0m, BRILLIANT SHOOTING CAPTAIN")
             break
         # Computer turn
         while True:
@@ -246,7 +249,7 @@ def start_game():
             break
         print_board(COMPUTER_GUESS_BOARD)
         if hit_count(COMPUTER_GUESS_BOARD) == 17:
-            print("Sorry, the computer won.")
+            print("UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN, WE WILL GET THEM NEXT TIME")
             break
 
 
@@ -277,3 +280,4 @@ def play_again():
 if __name__ == "__main__":
     welcome_message()
     start_game()
+    play_again()
