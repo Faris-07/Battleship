@@ -1,3 +1,4 @@
+# Libraries
 import random
 
 PLAYER_BOARD = [[" "] * 8 for i in range(8)]
@@ -17,6 +18,9 @@ letters_conversion = {
     'G': 6,
     'H': 7
 }
+
+
+
 
 
 def print_board(board):
@@ -184,7 +188,7 @@ def turn(board):
         else:
             board[row][column] = "-"
     else:
-        row, column = random.randint(0,7), random.randint(0,7)
+        row, column = random.randint(0, 7), random.randint(0, 7)
         if board[row][column] == "-":
             turn(board)
         elif board[row][column] == "X":
@@ -198,3 +202,23 @@ place_ship(COMPUTER_BOARD)
 print_board(COMPUTER_BOARD)
 print_board(PLAYER_BOARD)
 place_ship(PLAYER_BOARD)
+
+
+while True:
+    # Player turn
+    while True:
+        print('Guess a battleship location')
+        print_board(PLAYER_GUESS_BOARD)
+        turn(PLAYER_GUESS_BOARD)
+        break
+    if hit_count(PLAYER_GUESS_BOARD) == 17:
+        print("You win!")
+        break
+    # Computer turn
+    while True:
+        turn(COMPUTER_GUESS_BOARD)
+        break
+    print_board(COMPUTER_GUESS_BOARD)
+    if hit_count(COMPUTER_GUESS_BOARD) == 17:
+        print("Sorry, the computer won.")
+        break
