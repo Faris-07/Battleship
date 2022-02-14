@@ -1,5 +1,6 @@
 # Libraries
 import random
+import time
 
 PLAYER_BOARD = [[" "] * 8 for i in range(8)]
 COMPUTER_BOARD = [[" "] * 8 for i in range(8)]
@@ -198,9 +199,13 @@ def turn(board):
         else:
             board[row][column] = "-"
 
+# Computer places ships
 place_ship(COMPUTER_BOARD)
+# Computer board displayed
 print_board(COMPUTER_BOARD)
+# Player board displayed
 print_board(PLAYER_BOARD)
+# Player places ships
 place_ship(PLAYER_BOARD)
 
 
@@ -210,6 +215,7 @@ while True:
         print('Guess a battleship location')
         print_board(PLAYER_GUESS_BOARD)
         turn(PLAYER_GUESS_BOARD)
+        time.sleep(2)
         break
     if hit_count(PLAYER_GUESS_BOARD) == 17:
         print("You win!")
@@ -217,6 +223,7 @@ while True:
     # Computer turn
     while True:
         turn(COMPUTER_GUESS_BOARD)
+        time.sleep(2)
         break
     print_board(COMPUTER_GUESS_BOARD)
     if hit_count(COMPUTER_GUESS_BOARD) == 17:
