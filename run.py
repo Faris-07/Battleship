@@ -137,19 +137,19 @@ def user_input(place_ship):
     to place their ships as well as guessing the computers ships on the board
     """
     if place_ship:
-        orientation = input("Enter orientation (H or V):").upper()
+        orientation = input("Enter orientation (H or V): ").upper()
         while orientation not in ORIENTATION:
-            orientation = input("Enter a valid orientation (H or V):").upper()
+            orientation = input("Enter a valid orientation (H or V): ").upper()
 
-        row = input("Enter the row 1-8 of the ship:")
+        row = input("Enter the row of the ship 1-8: ")
         while row not in ROWS:
-            row = input("Enter a valid number between 1-8: ")
+            row = input("Please enter a valid number between 1-8: ")
 
         column = input("Enter the column of the ship A-H: ").upper()
         if column in COLUMNS:
             column = letters_conversion[column]
         while column not in 'COLUMNS':
-            column = input("Enter a valid column A-H: ").upper()
+            column = input("Please enter a valid letter between A-H: ").upper()
             column = letters_conversion[column]
         return row, column, orientation
     else:
@@ -160,7 +160,7 @@ def user_input(place_ship):
                     row = int(row) - 1
                     break
             except ValueError:
-                print('Enter a valid letter between 1-8')
+                print("Please enter a valid number between 1-8: ")
         while True:
             try:
                 column = input("Enter the column of the ship: ").upper()
@@ -168,7 +168,7 @@ def user_input(place_ship):
                     column = letters_conversion[column]
                     break
             except KeyError:
-                print('Enter a valid letter between A-H')
+                print("Please enter a valid letter between A-H: ")
         return row, column
 
 
@@ -264,7 +264,7 @@ def play_again():
     while True:
         if answer == "Y":
             print(PHASE)
-            start_game()
+            welcome_message()
         elif answer == "N":
             print(' ')
             print('GOODBYE!')
