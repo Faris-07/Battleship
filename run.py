@@ -139,7 +139,8 @@ def user_input(place_ship):
     if place_ship:
         orientation = input("Enter orientation (H or V): \n").upper()
         while orientation not in ORIENTATION:
-            orientation = input("Enter a valid orientation (H or V): \n").upper()
+            orientation = input(
+                "Enter a valid orientation (H or V): \n").upper()
 
         row = input("Enter the row of the ship 1-8: \n")
         while row not in ROWS:
@@ -149,7 +150,8 @@ def user_input(place_ship):
         if column in COLUMNS:
             column = letters_conversion[column]
         while column not in 'COLUMNS':
-            column = input("Please enter a valid letter between A-H: \n").upper()
+            column = input(
+                "Please enter a valid letter between A-H: \n").upper()
             column = letters_conversion[column]
         return row, column, orientation
     else:
@@ -249,7 +251,9 @@ def start_game():
             break
         print_board(COMPUTER_GUESS_BOARD)
         if hit_count(COMPUTER_GUESS_BOARD) == 17:
-            print("UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN, WE WILL GET THEM NEXT TIME")
+            print(
+                "UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN, WE WILL GET THEM \
+                NEXT TIME")
             break
 
 
