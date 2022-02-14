@@ -199,33 +199,44 @@ def turn(board):
         else:
             board[row][column] = "-"
 
-# Computer places ships
-place_ship(COMPUTER_BOARD)
-# Computer board displayed
-print_board(COMPUTER_BOARD)
-# Player board displayed
-print_board(PLAYER_BOARD)
-# Player places ships
-place_ship(PLAYER_BOARD)
+
+def start_game():
+    """
+    Start game function
+    """
+    start_key = input("press P to start Game").upper()
+    while start_key != "P":
+        start_key = input("press P to start Game").upper()
+    # Computer places ships
+    place_ship(COMPUTER_BOARD)
+    # Computer board displayed
+    print_board(COMPUTER_BOARD)
+    # Player board displayed
+    print_board(PLAYER_BOARD)
+    # Player places ships
+    place_ship(PLAYER_BOARD)
+
+    while True:
+        # Player turn
+        while True:
+            print('Guess a battleship location')
+            print_board(PLAYER_GUESS_BOARD)
+            turn(PLAYER_GUESS_BOARD)
+            time.sleep(2)
+            break
+        if hit_count(PLAYER_GUESS_BOARD) == 17:
+            print("You win!")
+            break
+        # Computer turn
+        while True:
+            turn(COMPUTER_GUESS_BOARD)
+            time.sleep(2)
+            break
+        print_board(COMPUTER_GUESS_BOARD)
+        if hit_count(COMPUTER_GUESS_BOARD) == 17:
+            print("Sorry, the computer won.")
+            break
 
 
-while True:
-    # Player turn
-    while True:
-        print('Guess a battleship location')
-        print_board(PLAYER_GUESS_BOARD)
-        turn(PLAYER_GUESS_BOARD)
-        time.sleep(2)
-        break
-    if hit_count(PLAYER_GUESS_BOARD) == 17:
-        print("You win!")
-        break
-    # Computer turn
-    while True:
-        turn(COMPUTER_GUESS_BOARD)
-        time.sleep(2)
-        break
-    print_board(COMPUTER_GUESS_BOARD)
-    if hit_count(COMPUTER_GUESS_BOARD) == 17:
-        print("Sorry, the computer won.")
-        break
+if __name__ == "__main__":
+    start_game()
