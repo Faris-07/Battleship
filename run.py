@@ -3,6 +3,8 @@ COMPUTER_BOARD = [[" "] * 8 for i in range(8)]
 PLAYER_GUESS_BOARD = [[" "] * 8 for i in range(8)]  
 COMPUTER_GUESS_BOARD = [[" "] * 8 for i in range(8)]
 
+SHIP_LENGTHS = [2, 3, 3, 4, 5]
+
 letters_conversion = {
     'A': 0,
     'B': 1,
@@ -25,3 +27,19 @@ def print_board(board):
     for row in board:
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
+
+
+def fit_ship_check(SHIP_LENGTH, row, column, orientation):
+    """
+    The fit_ship_check checks if the ships inputted fit on the board
+    """
+    if orientation == "H":
+        if column + SHIP_LENGTH > 8:
+            return False
+        else:
+            return True
+    else:
+        if row + SHIP_LENGTH > 8:
+            return False
+        else:
+            return True
