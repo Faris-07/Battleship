@@ -21,14 +21,22 @@ letters_conversion = {
 }
 
 
+PHASE = "=" * 80
+
+
 def welcome_message():
     """
     The welcome_message function displays a welcome message every new game
     """
     print("\nWelcome To Battleships!\n")
     print("THE BOARD IS A GRID OF 8x8 WITH FIVE SHIPS TO SINK")
-    print("CARRIER - BATTLESHIP - CRUISER - SUBMARINE - DESTROYER")
+    print("\u001b[32mCARRIER - \u001b[33mBATTLESHIP -\
+    \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
+    \u001b[0m")
     print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
+    print("- is a miss")
+    print("X is a hit")
+    print(PHASE)
 
 
 def print_board(board):
@@ -118,35 +126,30 @@ def ship_overlap(board, row, column, orientation, ship_length):
     return False
 
 
+ORIENTATION = ["H", "V"]
+ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
+COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+
+
 def user_input(place_ship):
     """
     The user_input function takes input from the user to enter where they want
     to place their ships as well as guessing the computers ships on the board
     """
-    if place_ship == True:
-        while True:
-            try:
-                orientation = input("Enter orientation (H or V): ").upper()
-                if orientation == "H" or orientation == "V":
-                    break
-            except TypeError:
-                print('Enter a valid orientation H or V')
-        while True:
-            try:
-                row = input("Enter the row 1-8 of the ship: ")
-                if row in '12345678':
-                    row = int(row) - 1
-                    break
-            except ValueError:
-                print('Enter a valid letter between 1-8')
-        while True:
-            try:
-                column = input("Enter the column of the ship: ").upper()
-                if column in 'ABCDEFGH':
-                    column = letters_conversion[column]
-                    break
-            except KeyError:
-                print('Enter a valid letter between A-H')
+    if place_ship:
+        orientation = input("Enter orientation (H or V):").upper()
+        while orientation not in ORIENTATION:
+            orientation = input("Enter a valid orientation (H or V):").upper()
+        
+        row = input("Enter the row 1-8 of the ship:")
+        while row not in ROWS:
+            row = input("Enter a valid number between 1-8: ")
+
+        column = input("Enter the column of the ship: ").upper()
+        if column in 'COLUMNS':
+            column = letters_conversion[column]
+        else:
+            print('Enter a valid letter between A-H')
         return row, column, orientation
     else:
         while True:
@@ -211,13 +214,14 @@ def start_game():
     """
     Start game function
     """
-    start_key = input("press P to start Game").upper()
+    start_key = input("Press P to start Game: ").upper()
     while start_key != "P":
-        start_key = input("press P to start Game").upper()
+        start_key = input("Press P to start Game: ").upper()
+    print(PHASE)
     # Computer places ships
     place_ship(COMPUTER_BOARD)
     # Computer board displayed
-    print_board(COMPUTER_BOARD)
+    # print_board(COMPUTER_BOARD)
     # Player board displayed
     print_board(PLAYER_BOARD)
     # Player places ships
