@@ -104,3 +104,53 @@ def ship_overlap(board, row, column, orientation, ship_length):
             if board[i][column] == "X":
                 return True
     return False
+
+
+def user_input(place_ship):
+    """
+    The user_input function takes input from the user to enter where they want
+    to place their ships as well as guessing the computers ships on the board
+    """
+    if place_ship == True:
+        while True:
+            try:
+                orientation = input("Enter orientation (H or V): ").upper()
+                if orientation == "H" or orientation == "V":
+                    break
+            except TypeError:
+                print('Enter a valid orientation H or V')
+        while True:
+            try:
+                row = input("Enter the row 1-8 of the ship: ")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print('Enter a valid letter between 1-8')
+        while True:
+            try:
+                column = input("Enter the column of the ship: ").upper()
+                if column in 'ABCDEFGH':
+                    column = letters_conversion[column]
+                    break
+            except KeyError:
+                print('Enter a valid letter between A-H')
+        return row, column, orientation
+    else:
+        while True:
+            try:
+                row = input("Enter the row 1-8 of the ship: ")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print('Enter a valid letter between 1-8')
+        while True:
+            try:
+                column = input("Enter the column of the ship: ").upper()
+                if column in 'ABCDEFGH':
+                    column = letters_conversion[column]
+                    break
+            except KeyError:
+                print('Enter a valid letter between A-H')
+        return row, column
