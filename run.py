@@ -34,8 +34,8 @@ def welcome_message():
     \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
     \u001b[0m")
     print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
-    print("- is a miss")
-    print("X is a hit")
+    print("- IS A MISS")
+    print("X IS A HIT/SUNK SHIP")
     print(PHASE)
 
 
@@ -76,7 +76,7 @@ def place_ship(board):
                                 board[i][column] = "X"
                         break
             else:
-                place_ship == True
+                place_ship = True
                 print('Place the ship with a length of ' + str(ship_length))
                 row, column, orientation = user_input(place_ship)
                 if fit_ship_check(ship_length, row, column, orientation):
@@ -140,16 +140,17 @@ def user_input(place_ship):
         orientation = input("Enter orientation (H or V):").upper()
         while orientation not in ORIENTATION:
             orientation = input("Enter a valid orientation (H or V):").upper()
-        
+
         row = input("Enter the row 1-8 of the ship:")
         while row not in ROWS:
             row = input("Enter a valid number between 1-8: ")
 
-        column = input("Enter the column of the ship: ").upper()
-        if column in 'COLUMNS':
+        column = input("Enter the column of the ship A-H: ").upper()
+        if column in COLUMNS:
             column = letters_conversion[column]
-        else:
-            print('Enter a valid letter between A-H')
+        while column not in 'COLUMNS':
+            column = input("Enter a valid column A-H: ").upper()
+            column = letters_conversion[column]
         return row, column, orientation
     else:
         while True:
@@ -214,14 +215,14 @@ def start_game():
     """
     Start game function
     """
-    start_key = input("Press P to start Game: ").upper()
+    start_key = input("PRESS P TO START GAME: ").upper()
     while start_key != "P":
-        start_key = input("Press P to start Game: ").upper()
+        start_key = input("PRESS P TO START GAME: ").upper()
     print(PHASE)
     # Computer places ships
     place_ship(COMPUTER_BOARD)
     # Computer board displayed
-    # print_board(COMPUTER_BOARD)
+    print_board(COMPUTER_BOARD)
     # Player board displayed
     print_board(PLAYER_BOARD)
     # Player places ships
@@ -247,6 +248,30 @@ def start_game():
         if hit_count(COMPUTER_GUESS_BOARD) == 17:
             print("Sorry, the computer won.")
             break
+
+
+def play_again():
+
+    """
+    Asks the player if they want to play again or quit
+    """
+    print('\nWOULD YOU LIKE TO PLAY AGAIN?')
+    answer = input("ENTER Y OR N: ").upper()
+    print(' ')
+    while True:
+        if answer == "Y":
+            print(PHASE)
+            start_game()
+        elif answer == "N":
+            print(' ')
+            print('GOODBYE!')
+            print(' ')
+            print(PHASE)
+            return False
+        else:
+            print(' ')
+            print('PLEASE ENTER Y OR N')
+            answer = input('ENTER Y OR N: \n').upper()
 
 
 if __name__ == "__main__":
