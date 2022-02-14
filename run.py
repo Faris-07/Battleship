@@ -137,38 +137,38 @@ def user_input(place_ship):
     to place their ships as well as guessing the computers ships on the board
     """
     if place_ship:
-        orientation = input("Enter orientation (H or V): ").upper()
+        orientation = input("Enter orientation (H or V): \n").upper()
         while orientation not in ORIENTATION:
-            orientation = input("Enter a valid orientation (H or V): ").upper()
+            orientation = input("Enter a valid orientation (H or V): \n").upper()
 
-        row = input("Enter the row of the ship 1-8: ")
+        row = input("Enter the row of the ship 1-8: \n")
         while row not in ROWS:
-            row = input("Please enter a valid number between 1-8: ")
+            row = input("Please enter a valid number between 1-8: \n")
 
-        column = input("Enter the column of the ship A-H: ").upper()
+        column = input("Enter the column of the ship A-H: \n").upper()
         if column in COLUMNS:
             column = letters_conversion[column]
         while column not in 'COLUMNS':
-            column = input("Please enter a valid letter between A-H: ").upper()
+            column = input("Please enter a valid letter between A-H: \n").upper()
             column = letters_conversion[column]
         return row, column, orientation
     else:
         while True:
             try:
-                row = input("Enter the row 1-8 of the ship: ")
+                row = input("Enter the row 1-8 of the ship: \n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
             except ValueError:
-                print("Please enter a valid number between 1-8: ")
+                print("Please enter a valid number between 1-8: \n")
         while True:
             try:
-                column = input("Enter the column of the ship: ").upper()
+                column = input("Enter the column of the ship: \n").upper()
                 if column in 'ABCDEFGH':
                     column = letters_conversion[column]
                     break
             except KeyError:
-                print("Please enter a valid letter between A-H: ")
+                print("Please enter a valid letter between A-H: \n")
         return row, column
 
 
@@ -217,9 +217,9 @@ def start_game():
     """
     Start game function
     """
-    start_key = input("PRESS P TO START GAME: ").upper()
+    start_key = input("PRESS P TO START GAME: \n").upper()
     while start_key != "P":
-        start_key = input("PRESS P TO START GAME: ").upper()
+        start_key = input("PRESS P TO START GAME: \n").upper()
     print(PHASE)
     # Computer places ships
     place_ship(COMPUTER_BOARD)
@@ -259,7 +259,7 @@ def play_again():
     Asks the player if they want to play again or quit
     """
     print('\nWOULD YOU LIKE TO PLAY AGAIN?')
-    answer = input("ENTER Y OR N: ").upper()
+    answer = input("ENTER Y OR N: \n").upper()
     print(' ')
     while True:
         if answer == "Y":
