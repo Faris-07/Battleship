@@ -21,7 +21,14 @@ letters_conversion = {
 }
 
 
-
+def welcome_message():
+    """
+    The welcome_message function displays a welcome message every new game
+    """
+    print("\nWelcome To Battleships!\n")
+    print("THE BOARD IS A GRID OF 8x8 WITH FIVE SHIPS TO SINK")
+    print("CARRIER - BATTLESHIP - CRUISER - SUBMARINE - DESTROYER")
+    print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
 
 
 def print_board(board):
@@ -51,7 +58,7 @@ def place_ship(board):
                 if fit_ship_check(ship_length, row, column, orientation):
                     #  check if ship overlaps
                     if not ship_overlap(board, row, column, orientation,
-                    ship_length):
+                                        ship_length):
                         #  place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
@@ -61,13 +68,13 @@ def place_ship(board):
                                 board[i][column] = "X"
                         break
             else:
-                place_ship = True
+                place_ship == True
                 print('Place the ship with a length of ' + str(ship_length))
                 row, column, orientation = user_input(place_ship)
                 if fit_ship_check(ship_length, row, column, orientation):
                     # check if ship overlaps
                     if not ship_overlap(board, row, column, orientation,
-                    ship_length):
+                                        ship_length):
                         # place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
@@ -239,4 +246,5 @@ def start_game():
 
 
 if __name__ == "__main__":
+    welcome_message()
     start_game()
