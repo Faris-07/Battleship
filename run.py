@@ -128,7 +128,7 @@ def ship_overlap(board, row, column, orientation, ship_length):
 
 ORIENTATION = ["H", "V"]
 ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
-COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+COLUMNS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}
 
 
 def user_input(place_ship):
@@ -147,12 +147,10 @@ def user_input(place_ship):
             row = input("Please enter a valid number between 1-8: \n")
 
         column = input("Enter the column of the ship A-H: \n").upper()
-        if column in COLUMNS:
-            column = letters_conversion[column]
-        while column not in 'COLUMNS':
+        column = letters_conversion[column]
+        while column not in COLUMNS:
             column = input(
                 "Please enter a valid letter between A-H: \n").upper()
-            column = letters_conversion[column]
         return row, column, orientation
     else:
         while True:
