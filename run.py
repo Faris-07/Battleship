@@ -71,28 +71,29 @@ def place_ship(board):
                         #  place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
-                                board[row][i] = "X"
-                        else:
-                            for i in range(row, row + ship_length):
-                                board[i][column] = "X"
-                        break
-            else:
-                place_ship == True
-                print('Place the ship with a length of ' + str(ship_length))
-                row, column, orientation = user_input(place_ship)
-                if fit_ship_check(ship_length, row, column, orientation):
-                    # check if ship overlaps
-                    if not ship_overlap(board, row, column, orientation,
-                                        ship_length):
-                        # place ship
-                        if orientation == "H":
-                            for i in range(column, column + ship_length):
                                 board[row][i] = "@"
                         else:
                             for i in range(row, row + ship_length):
                                 board[i][column] = "@"
+                        break
+            else:
+                place_ship = True
+                print('Place the ship with a length of ' + str(ship_length))
+                row, column, orientation = user_input(place_ship)
+                if fit_ship_check(ship_length, row, column, orientation):
+                    #check if ship overlaps
+                        if ship_overlap(board, row, column, orientation, ship_length) == False:
+                            print(PHASE)
+                            print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN")
+                            #place ship
+                            if orientation == "H":
+                                for i in range(column, column + ship_length):
+                                    board[row][i] = "@"
+                            else:
+                                for i in range(row, row + ship_length):
+                                    board[i][column] = "@"
                             print_board(PLAYER_BOARD)
-                            break
+                            break 
 
 
 def fit_ship_check(SHIP_LENGTH, row, column, orientation):
@@ -101,11 +102,13 @@ def fit_ship_check(SHIP_LENGTH, row, column, orientation):
     """
     if orientation == "H":
         if column + SHIP_LENGTH > 8:
+            print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
             return False
         else:
             return True
     else:
         if row + SHIP_LENGTH > 8:
+            print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
             return False
         else:
             return True
@@ -119,10 +122,14 @@ def ship_overlap(board, row, column, orientation, ship_length):
     if orientation == "H":
         for i in range(column, column + ship_length):
             if board[row][i] == "@":
+                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
+                print(PHASE)
                 return True
     else:
         for i in range(row, row + ship_length):
             if board[i][column] == "@":
+                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
+                print(PHASE)
                 return True
     return False
 
@@ -137,23 +144,31 @@ def user_input(place_ship):
     The user_input function takes input from the user to enter where they want
     to place their ships as well as guessing the computers ships on the board
     """
-    if place_ship:
-        orientation = input("Enter orientation (H or V): \n").upper()
-        while orientation not in ORIENTATION:
-            orientation = input(
-                "Enter a valid orientation (H or V): \n").upper()
-
-        row = input("Enter the row of the ship 1-8: \n")
-        row = int(row) - 1
-        while row not in ROWS:
-            row = input("Please enter a valid number between 1-8: \n")
-
-        column = input("Enter the column of the ship A-H: \n").upper()
-        column = letters_conversion[column]
-        while column not in COLUMNS:
-            column = input(
-                "Please enter a valid letter between A-H: \n").upper()
-        return row, column, orientation
+    if place_ship == True:
+        while True:
+            try: 
+                orientation = input("Enter orientation (H or V): \n").upper()
+                if orientation == "H" or orientation == "V":
+                    break
+            except TypeError:
+                print('Enter a valid orientation H or V: \n')
+        while True:
+            try: 
+                row = input("Enter the row of the ship 1-8: \n")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print("Enter a valid letter between 1-8: \n" )
+        while True:
+            try: 
+                column = input("Enter the column of the ship A-H: \n").upper()
+                if column in 'ABCDEFGH':
+                    column = letters_conversion[column]
+                    break
+            except KeyError:
+                print('Enter a valid letter between A-H: \n')
+        return row, column, orientation 
     else:
         while True:
             try:
