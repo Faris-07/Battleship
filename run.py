@@ -49,6 +49,7 @@ def welcome_message():
     \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
     \u001b[0m")
     print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
+    time.sleep(2)
     print(PHASE)
 
     # Instructions
@@ -68,6 +69,7 @@ def welcome_message():
     print("@ IS A SHIP")
     print("- IS A MISS")
     print("X IS A HIT/SUNK SHIP")
+    time.sleep(2)
     print(PHASE)
 
 
