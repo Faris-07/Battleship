@@ -18,13 +18,20 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - When all ships have been placed on the board the battle begins the player guesses the co-ordinates of the computers ships and the computer guesses where the player placed     their ships. 
 - The first to destroy all ships wins the game.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Features
+## Existing Features
 
-## Reminders
+- The Welcome Message
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+    - When a new game starts the welcome message is displayed.
+    - The user is met with colour coded ships and ASCII art (Battleships Logo). 
+    - Within this the different types of ship are listed, as well as the: board size, total number of hits needed to win (17) and the different styles of marker.
+    - It also contains the instructions in how to play the game.
+    - The player is then prompted for name input, which complies to the validation checks listed. Input is repeated until a valid name is entered.
+
+![readme hero image]()
+
+
 
 ## Creating the Heroku app
 
