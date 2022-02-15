@@ -102,13 +102,11 @@ def fit_ship_check(SHIP_LENGTH, row, column, orientation):
     """
     if orientation == "H":
         if column + SHIP_LENGTH > 8:
-            print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
             return False
         else:
             return True
     else:
         if row + SHIP_LENGTH > 8:
-            print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
             return False
         else:
             return True
@@ -172,7 +170,7 @@ def user_input(place_ship):
     else:
         while True:
             try:
-                row = input("Enter the row 1-8 of the ship: \n")
+                row = input("Enter the row of the ship 1-8: \n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
@@ -180,7 +178,7 @@ def user_input(place_ship):
                 print("Please enter a valid number between 1-8: \n")
         while True:
             try:
-                column = input("Enter the column of the ship: \n").upper()
+                column = input("Enter the column of the ship A-H: \n").upper()
                 if column in 'ABCDEFGH':
                     column = letters_conversion[column]
                     break
@@ -229,7 +227,8 @@ def turn(board):
             print("WE ARE HIT, FIRE BACK!")
         else:
             board[row][column] = "-"
-            print("THE COMPUTER MISSED, PHEW...")
+            print("THE COMPUTER MISSED, PHEW...\n")
+            print("COMPUTERS BOARD \n")
 
 
 def start_game():
@@ -243,7 +242,7 @@ def start_game():
     # Computer places ships
     place_ship(COMPUTER_BOARD)
     # Computer board displayed
-    print_board(COMPUTER_BOARD)
+    # print_board(COMPUTER_BOARD)
     # Player board displayed
     print_board(PLAYER_BOARD)
     # Player places ships
