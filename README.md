@@ -49,7 +49,15 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - Ships that haven't been hit are displayed on the player's board as the at sign "@".
     - Letters are used for the column display and numbers for the rows, this allows for easy differentiation when inputting coordinates.
     - The markers that have been used give a good level of contrast and distinction between the different markers and what they represent.  "@" to represent ships, "-" for a miss and "X" for a hit.
-    
+
+![readme hero image]()
+
+- Game Play Display
+    - Feedback to the user is provided constantly throught all phases of the game.
+    - All sequences are broken down to increase ease of use and clarity. The boards are updated appropriately as well as the hit counter incrementing when required.
+    - A consistent use of the sleep method and phase/line breaks is also used throughout to increase ease of use and clarity.
+
+![readme hero image]()
 
 ## Creating the Heroku app
 
