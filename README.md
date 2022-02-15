@@ -131,21 +131,9 @@ To deploy the project through Heroku I followed these steps:
 - This will ensure whenever you change something in the repo and push the changes to GitHub, Heroku will rebuild the app. If you prefer to do this manually you can utilise the manual deployment options further down. For this project I utilised the Automatic Deployment to enable me to check changes I made to the app as I developed it.
 - Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
 
+## Bugs
+- Solved Bugs
+    - A bug I came across was the players error message for when placing a ship which overlaps over existing ships or dosen't fit the board was being printed when it was the computers turn to place its ships. I fixed it by using a for loop in the players turn of the place_ship function to print the message therefore no message would be printed if the computers ship overlapped or did not fit the board. 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+- Remaining Bugs
+    - No bugs remaining
