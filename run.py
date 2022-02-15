@@ -145,10 +145,11 @@ def place_ship(board):
                 if fit_ship_check(ship_length, row, column, orientation):
                     #check if ship overlaps
                     if ship_overlap(board, row, column, orientation, ship_length):
+                        print(PHASE)
                         print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
                     else:
                         print(PHASE)
-                        print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN")
+                        print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN \n")
                             #place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
@@ -158,18 +159,6 @@ def place_ship(board):
                                 board[i][column] = "@"
                         print_board(PLAYER_BOARD)
                         break
-                       # if not ship_overlap(board, row, column, orientation, ship_length):
-                           # print(PHASE)
-                           # print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN")
-                            #place ship
-                           # if orientation == "H":
-                               # for i in range(column, column + ship_length):
-                                   # board[row][i] = "@"
-                           # else:
-                               # for i in range(row, row + ship_length):
-                                   # board[i][column] = "@"
-                           # print_board(PLAYER_BOARD)
-                           # break
 
 
 def fit_ship_check(SHIP_LENGTH, row, column, orientation):
