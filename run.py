@@ -28,12 +28,25 @@ def welcome_message():
     """
     The welcome_message function displays a welcome message every new game
     """
+    print("""\
+    \u001b[32m
+  ____               _______   _______   _        ______    _____   _    _   _____   _____     _____ 
+ |  _ \      /\     |__   __| |__   __| | |      |  ____|  / ____| | |  | | |_   _| |  __ \   / ____|
+ | |_) |    /  \       | |       | |    | |      | |__    | (___   | |__| |   | |   | |__) | | (___  
+ |  _ <    / /\ \      | |       | |    | |      |  __|    \___ \  |  __  |   | |   |  ___/   \___ \ 
+ | |_) |  / ____ \     | |       | |    | |____  | |____   ____) | | |  | |  _| |_  | |       ____) |
+ |____/  /_/    \_\    |_|       |_|    |______| |______| |_____/  |_|  |_| |_____| |_|      |_____/ 
+ \u001b[0m                                                                                                                                                                                             
+""")
     print("\nWelcome To Battleships!\n")
     print("THE BOARD IS A GRID OF 8x8 WITH FIVE SHIPS TO SINK")
     print("\u001b[32mCARRIER - \u001b[33mBATTLESHIP -\
     \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
     \u001b[0m")
     print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
+    print("\u001b[31mINSTRUCTIONS:\u001b[0m \n")
+    print("THE AIM OF THE GAME IS TO DESTROY THE AI ENEMY BY DESTROYING ALL THEIR SHIPS BEFORE THEY DESTROY YOURS. THE THING IS WELL BOTH OF YOU CANT SEE WHERE TO SHOOT... BUT THAT SHOULDNT BE MUCH OF A PROBLEM. \n")
+    print("THE RULES ARE AS FOLLOWS: \n")
     print("@ IS A SHIP")
     print("- IS A MISS")
     print("X IS A HIT/SUNK SHIP")
