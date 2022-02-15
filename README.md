@@ -76,6 +76,8 @@ The player places their 5 ships on the board and the computer randomly chooses w
 ## Testing
 - Due to the nature of the project, testing has been implemented throughout the entire project mainly debugging through running the program in the terminal as well as debugging using the python debugger. This is shown by commits of refactoring code.
 - Sections of code where developed before implementation to make sure it worked and also where run throught the PEP8 validator.
+- Tested with invalid inputs: Such as using TypeErrors and ValueErrors, string instead of integers, out of bound inputs, same input twice.
+- Tested in both Gitpod terminal and CI Heroku terminal.
 - Limit testing has been conducted by myself, users and peers on slack through the peer-code-review channel, there is currently no reported issues that cause the game to break.
 
 ## Validator Testing
