@@ -77,16 +77,29 @@ def name_input():
     """
     The name_input function takes input from the user and stores it in a variable that can be used further into the program
     """
-    print('NAME CAN BE 10 CHARACTERS MAX. LETTERS & NUMBERS')
+    print("WHAT SHALL YOU BE KNOWN BY CAPTAIN?")
     while True:
-        player_name = input('PLEASE ENTER A TEAM NAME:\n')
+        player_name = input("PLEASE ENTER A NAME:\n")
         if validate_team_name(player_name):
             break
-    print(f'\nTHE NAME YOU CHOSE IS: {player_name}\n')
+    print(f"\nTHE NAME YOU CHOSE IS: {player_name}\n")
     print(PHASE)
     time.sleep(1)
     print(' ')
     return player_name
+
+def check_player_name(name):
+    """
+    The check_player_name function checks if the players name is longer than 10 or not long enough.
+    Then it tells the player to enter a valid name
+    """
+    if len(name) > 10:
+	    print('INVALID NAME. 10 CHARACTERS MAX')
+	    return False
+    elif len(name) == 0:
+        print('INVALID NAME. NOT LONG ENOUGH')
+    else:
+        return True
 
 
 def print_board(board):
@@ -349,5 +362,6 @@ def play_again():
 
 if __name__ == "__main__":
     welcome_message()
+    name_input()
     start_game()
     play_again()
