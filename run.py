@@ -129,7 +129,7 @@ def place_ship(board):
                 if fit_ship_check(ship_length, row, column, orientation):
                     #  check if ship overlaps
                     if not ship_overlap(board, row, column, orientation,
-                                        ship_length):
+                                        ship_length,):
                         #  place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
@@ -146,7 +146,7 @@ def place_ship(board):
                     #check if ship overlaps
                         if ship_overlap(board, row, column, orientation, ship_length) == False:
                             print(PHASE)
-                            print(f"\nEXCELLENT POSITIONING OF THE SHIP CAPTAIN {player_name}")
+                            print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN")
                             #place ship
                             if orientation == "H":
                                 for i in range(column, column + ship_length):
@@ -182,13 +182,13 @@ def ship_overlap(board, row, column, orientation, ship_length):
     if orientation == "H":
         for i in range(column, column + ship_length):
             if board[row][i] == "@":
-                print(f"\nTHE SHIP DOSENT FIT HERE CAPTAIN {player_name} \n")
+                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
                 print(PHASE)
                 return True
     else:
         for i in range(row, row + ship_length):
             if board[i][column] == "@":
-                print(f"\nTHE SHIP DOSENT FIT HERE CAPTAIN {player_name} \n")
+                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
                 print(PHASE)
                 return True
     return False
@@ -206,29 +206,35 @@ def user_input(place_ship):
     """
     if place_ship == True:
         while True:
-            try: 
+            try:
                 orientation = input("Enter orientation (H or V): \n").upper()
                 if orientation == "H" or orientation == "V":
                     break
-            except TypeError:
-                print('Enter a valid orientation H or V: \n')
+                else:
+                    raise ValueError
+            except ValueError:
+                print("Please enter a valid orientaion (H or V)")
         while True:
-            try: 
+            try:
                 row = input("Enter the row of the ship 1-8: \n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
+                else:
+                    raise ValueError
             except ValueError:
-                print("Enter a valid letter between 1-8: \n" )
+                print("Please enter a valid letter between 1-8")
         while True:
-            try: 
+            try:
                 column = input("Enter the column of the ship A-H: \n").upper()
-                if column in 'ABCDEFGH':
+                if column not in 'ABCDEFGH':
+                    print("Please enter a valid letter between A-H")
+                else:
                     column = letters_conversion[column]
                     break
             except KeyError:
-                print('Enter a valid letter between A-H: \n')
-        return row, column, orientation 
+                print("Please enter a valid letter between A-H")
+        return row, column, orientation
     else:
         while True:
             try:
@@ -236,16 +242,20 @@ def user_input(place_ship):
                 if row in '12345678':
                     row = int(row) - 1
                     break
+                else:
+                    raise ValueError
             except ValueError:
-                print("Please enter a valid number between 1-8: \n")
+                print("Please enter a valid letter between 1-8")
         while True:
             try:
                 column = input("Enter the column of the ship A-H: \n").upper()
-                if column in 'ABCDEFGH':
+                if column not in 'ABCDEFGH':
+                    print("Please enter a valid letter between A-H")
+                else:
                     column = letters_conversion[column]
                     break
             except KeyError:
-                print("Please enter a valid letter between A-H: \n")
+                print("Please enter a valid letter between A-H")
         return row, column
 
 
@@ -274,7 +284,7 @@ def turn(board):
             turn(board)
         elif COMPUTER_BOARD[row][column] == "@":
             board[row][column] = "X"
-            print(f"\nWE HIT THEM, GREAT SHOT CAPTAIN {player_name}")
+            print("WE HIT THEM, GREAT SHOT CAPTAIN")
         else:
             board[row][column] = "-"
             print("WE MISSED, WE WILL GET THEM ON THE NEXT SHOT")
@@ -287,6 +297,7 @@ def turn(board):
         elif PLAYER_BOARD[row][column] == "@":
             board[row][column] = "X"
             print("WE ARE HIT, FIRE BACK!")
+            print("COMPUTERS BOARD \n")
         else:
             board[row][column] = "-"
             print("THE COMPUTER MISSED, PHEW...\n")
@@ -340,7 +351,7 @@ def play_again():
     """
     Asks the player if they want to play again or quit
     """
-    print('\nWOULD YOU LIKE TO PLAY AGAIN?, CAPTAIN {player_name}')
+    print("WOULD YOU LIKE TO PLAY AGAIN?, CAPTAIN \n")
     answer = input("ENTER Y OR N: \n").upper()
     print(' ')
     while True:
