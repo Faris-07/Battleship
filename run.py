@@ -34,6 +34,7 @@ def welcome_message():
     \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
     \u001b[0m")
     print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
+    print("@ IS A SHIP")
     print("- IS A MISS")
     print("X IS A HIT/SUNK SHIP")
     print(PHASE)
@@ -76,7 +77,7 @@ def place_ship(board):
                                 board[i][column] = "X"
                         break
             else:
-                place_ship = True
+                place_ship == True
                 print('Place the ship with a length of ' + str(ship_length))
                 row, column, orientation = user_input(place_ship)
                 if fit_ship_check(ship_length, row, column, orientation):
@@ -86,10 +87,10 @@ def place_ship(board):
                         # place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
-                                board[row][i] = "X"
+                                board[row][i] = "@"
                         else:
                             for i in range(row, row + ship_length):
-                                board[i][column] = "X"
+                                board[i][column] = "@"
                             print_board(PLAYER_BOARD)
                             break
 
@@ -117,18 +118,18 @@ def ship_overlap(board, row, column, orientation, ship_length):
     """
     if orientation == "H":
         for i in range(column, column + ship_length):
-            if board[row][i] == "X":
+            if board[row][i] == "@":
                 return True
     else:
         for i in range(row, row + ship_length):
-            if board[i][column] == "X":
+            if board[i][column] == "@":
                 return True
     return False
 
 
 ORIENTATION = ["H", "V"]
 ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
-COLUMNS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}
+COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
 
 def user_input(place_ship):
@@ -143,6 +144,7 @@ def user_input(place_ship):
                 "Enter a valid orientation (H or V): \n").upper()
 
         row = input("Enter the row of the ship 1-8: \n")
+        row = int(row) - 1
         while row not in ROWS:
             row = input("Please enter a valid number between 1-8: \n")
 
@@ -195,17 +197,19 @@ def turn(board):
             turn(board)
         elif board[row][column] == "X":
             turn(board)
-        elif COMPUTER_BOARD[row][column] == "X":
+        elif COMPUTER_BOARD[row][column] == "@":
             board[row][column] = "X"
+            print("WE HIT THEM, GREAT SHOT CAPTAIN")
         else:
             board[row][column] = "-"
+            print("WE MISSED, WE WILL GET THEM ON THE NEXT SHOT")
     else:
         row, column = random.randint(0, 7), random.randint(0, 7)
         if board[row][column] == "-":
             turn(board)
         elif board[row][column] == "X":
             turn(board)
-        elif PLAYER_BOARD[row][column] == "X":
+        elif PLAYER_BOARD[row][column] == "@":
             board[row][column] = "X"
             print("WE ARE HIT, FIRE BACK!")
         else:
@@ -266,6 +270,7 @@ def play_again():
     while True:
         if answer == "Y":
             print(PHASE)
+            time.sleep(2)
             welcome_message()
         elif answer == "N":
             print(' ')
