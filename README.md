@@ -41,8 +41,15 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - The Guess Board
     - Once the ships have been placed on each board the game play begins.
     - The player always goes first, their guess board is printed out to them for reference when entering a row and column, which must pass validation checks if not the user is prompted to enter valid data again. Once a valid input is entered the result of their attack is printed out to them before the guess board is updated and printed out to them again. The computers guess is printed out to the user alongside the computers board of where the player hit for reference to see where there shot landed. Validation checks prevent the user repeating already guessed spots on the board.
-    - The sleep method of the time library and a line break are used here to emphasize the individual turns, a countdown of two seconds is used before the computer makes their attack and the terminal is updated.
-    - The sleep method of the time library 
+    - The sleep method of the time library and phase/line break is used to seperate and emphasize the individual turns. There is a countdown of two seconds before the computer makes their attack and the terminal is updated this also adds more suspense.
+
+![readme hero image]()
+
+- Ship Display
+    - Ships that haven't been hit are displayed on the player's board as the at sign "@".
+    - Letters are used for the column display and numbers for the rows, this allows for easy differentiation when inputting coordinates.
+    - The markers that have been used give a good level of contrast and distinction between the different markers and what they represent.  "@" to represent ships, "-" for a miss and "X" for a hit.
+    
 
 ## Creating the Heroku app
 
