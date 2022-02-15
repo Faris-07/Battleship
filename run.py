@@ -40,22 +40,26 @@ def welcome_message():
                                          |_| 
 \u001b[0m       
 """)
-    
-   
+
     # Welcome Message
     print("\nWelcome To Battleships!\n")
     print("THE BOARD IS A GRID OF 8x8 WITH FIVE SHIPS TO SINK")
-    print("\u001b[32mCARRIER - \u001b[33mBATTLESHIP -\
-    \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
+    print("\u001b[32mCARRIER - \u001b[33mBATTLESHIP - \
+\u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER\
     \u001b[0m")
-    print("EACH PLAYER HAS 17 LIVES, THE FIRST TO STRIKE 17 BLOWS TO THE ENEMYS SHIPS WINS\n")
+    print("EACH PLAYER HAS 17 LIVES, \
+THE FIRST TO STRIKE 17 BLOWS TO THE ENEMYS SHIPS WINS\n")
     time.sleep(5)
     print(PHASE)
 
     # Instructions
     print("\u001b[31mINSTRUCTIONS:\u001b[0m \n")
-    print("THE AIM OF THE GAME IS TO DESTROY THE AI ENEMY BY DESTROYING ALL THEIR SHIPS\n")
-    print("BEFORE THEY DESTROY YOURS. THE THING IS WELL BOTH OF YOU CANT SEE WHERE TO\n")
+    print("THE FIRST PLAYER TO GET A HIT COUNT OF 17 HITS DESTROYING ALL ENEMY \
+SHIPS WINS")
+    print("THE AIM OF THE GAME IS TO DESTROY THE AI \
+ENEMY BY DESTROYING ALL THEIR SHIPS\n")
+    print("BEFORE THEY DESTROY YOURS. THE THING IS WELL \
+BOTH OF YOU CANT SEE WHERE TO\n")
     print("SHOOT... BUT THAT SHOULDNT BE MUCH OF A PROBLEM. \n")
     print("THE RULES ARE AS FOLLOWS: \n")
     print("SHIPS: \n")
@@ -75,7 +79,8 @@ def welcome_message():
 
 def name_input():
     """
-    The name_input function takes input from the user and stores it in a variable that can be used further into the program
+    The name_input function takes input from the user and stores it 
+    in a variable that can be used further into the program
     """
     print("WHAT SHALL YOU BE KNOWN BY CAPTAIN?")
     while True:
@@ -88,14 +93,15 @@ def name_input():
     print(' ')
     return player_name
 
+
 def check_player_name(name):
     """
-    The check_player_name function checks if the players name is longer than 10 or not long enough.
-    Then it tells the player to enter a valid name
+    The check_player_name function checks if the players name is longer 
+    than 10 or not long enough. Then it tells the player to enter a valid name
     """
     if len(name) > 10:
-	    print('INVALID NAME. 10 CHARACTERS MAX')
-	    return False
+        print('INVALID NAME. 10 CHARACTERS MAX')
+        return False
     elif len(name) == 0:
         print('INVALID NAME. NOT LONG ENOUGH')
     else:
@@ -143,14 +149,15 @@ def place_ship(board):
                 print('Place the ship with a length of ' + str(ship_length))
                 row, column, orientation = user_input(place_ship)
                 if fit_ship_check(ship_length, row, column, orientation):
-                    #check if ship overlaps
-                    if ship_overlap(board, row, column, orientation, ship_length):
+                    # check if ship overlaps
+                    if ship_overlap(board, row, column, orientation,
+                                    ship_length):
                         print(PHASE)
                         print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
                     else:
                         print(PHASE)
                         print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN \n")
-                            #place ship
+                        # place ship
                         if orientation == "H":
                             for i in range(column, column + ship_length):
                                 board[row][i] = "@"
@@ -203,7 +210,7 @@ def user_input(place_ship):
     The user_input function takes input from the user to enter where they want
     to place their ships as well as guessing the computers ships on the board
     """
-    if place_ship == True:
+    if place_ship:
         while True:
             try:
                 orientation = input("Enter orientation (H or V): \n").upper()
@@ -376,3 +383,4 @@ if __name__ == "__main__":
     name_input()
     start_game()
     play_again()
+

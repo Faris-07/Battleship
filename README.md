@@ -24,7 +24,7 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - The Welcome Message
 
     - When a new game starts the welcome message is displayed.
-    - The user is met with colour coded ships and ASCII art (Battleships Logo). 
+    - The user is met with colour coded sections and ASCII art (Battleships Logo) for clarity. 
     - Within this the different types of ship are listed, as well as the: board size, total number of hits needed to win (17) and the different styles of marker.
     - It also contains the instructions in how to play the game.
     - The player is then prompted for name input, which complies to the validation checks listed. Input is repeated until a valid name is entered.
@@ -73,6 +73,28 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - Make a 2 player version of the game.
 - Highlight the win or lose message with more effect.
 
+## Testing
+- Due to the nature of the project, testing has been implemented throughout the entire project mainly debugging through running the program in the terminal as well as debugging using the python debugger. This is shown by commits of refactoring code.
+- Sections of code where developed before implementation to make sure it worked and also where run throught the PEP8 validator.
+- Limit testing has been conducted by myself, users and peers on slack through the peer-code-review channel, there is currently no reported issues that cause the game to break.
+
+## Validator Testing
+
+- HTML
+    - Not within project scope.
+
+- CSS
+    - Not within project scope.
+
+- JS
+    - Not within project scope.
+
+- Python
+    - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
+
+- **Lighthouse**
+
+    - Not within project scope.
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
