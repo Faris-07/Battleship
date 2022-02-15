@@ -137,3 +137,6 @@ To deploy the project through Heroku I followed these steps:
 
 - Remaining Bugs
     - No bugs remaining
+
+## Credits
+- When researching on how to use colour in the terminal I came across Haoyi's Programming Blog which showed me how to implement colours in the terminal the link to the blog can be found [here](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html)
