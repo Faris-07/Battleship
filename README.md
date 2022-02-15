@@ -64,7 +64,15 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - The player is them prompted to play again, input validation is used here to ensure a Y or N is entered.
     - If the user inputs with a "y" then the game is started from the beginning, else the player is told goodbye and the program ends.
 
-## Creating the Heroku app
+![readme hero image]()
+
+## Features left to implement
+*There are no features left to implement from the initial scope of my project, however I have some features that I would like to add in the future.*
+
+- Print the Player Board and Computer Board side by side in the terminal, rather than on top of one another.
+- Make a 2 player version of the game.
+- Highlight the win or lose message with more effect.
+
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
