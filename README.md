@@ -1,6 +1,8 @@
 # Battleships
 
-Battleships is a Python terminal mini game which runs on Heroku. It is based on the popular board game battleships more info on the baord game version can be found here.
+Battleships is a Python terminal mini game which runs on Heroku. It is based on the popular board game battleships more info on the board game version can be found here.
+
+As the game was developed in Python for use in the terminal, it utilises the Code Institute Python Template to generate a "terminal" onto the page, making it available within a web browser.
 
 Users compete against AI to try and shoot each others battleships, The first to destroy all battleships is the winner. There are 5 types of ships to destroy they are the 
 carrier (takes 5 spaces on the board), battleship (takes 4 spaces on the board), cruiser (takes 3 spaces on the board), submarine (takes 3 spaces on the board) and the destroyer (takes 2 spaces on the board).
@@ -8,6 +10,13 @@ carrier (takes 5 spaces on the board), battleship (takes 4 spaces on the board),
 The player places their 5 ships on the board and the computer randomly chooses where he wants to put all his ships, Then we duel.
 
 ![readme hero image]()
+
+## How To Play
+
+- The player enters their name and jumps straight into the action.
+- The player places their 5 ships on the board.
+- When all ships have been placed on the board the battle begins the player guesses the co-ordinates of the computers ships and the computer guesses where the player placed     their ships. 
+- The first to destroy all ships wins the game.
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
