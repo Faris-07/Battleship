@@ -59,6 +59,11 @@ The player places their 5 ships on the board and the computer randomly chooses w
 
 ![readme hero image]()
 
+- Play Again
+    - Once all the conditions of an end game have been met, which is a player either computer or user has hit the total hit count of 17, the turn sequence is broken out off, with a win or lose message being displayed.
+    - The player is them prompted to play again, input validation is used here to ensure a Y or N is entered.
+    - If the user inputs with a "y" then the game is started from the beginning, else the player is told goodbye and the program ends.
+
 ## Creating the Heroku app
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
