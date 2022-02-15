@@ -73,6 +73,11 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - Make a 2 player version of the game.
 - Highlight the win or lose message with more effect.
 
+## Data Model
+- The project uses the board class as my model. The game creates four boards the first to hold the players guesses the second to display the users board and the other two are the same but for the computers board.
+- The board class stores the boards size (8), how many ships are on the board, the positions of the chosen ships on the board and information such as board type (player or computer board). 
+- The board class also runs functions such as the place_ship function so the player and computer can enter valid ship positions and a hit_count function to count all the hit ships on the board.
+
 ## Testing
 - Due to the nature of the project, testing has been implemented throughout the entire project mainly debugging through running the program in the terminal as well as debugging using the python debugger. This is shown by commits of refactoring code.
 - Sections of code where developed before implementation to make sure it worked and also where run throught the PEP8 validator.
