@@ -79,10 +79,10 @@ def name_input():
     """
     print("WHAT SHALL YOU BE KNOWN BY CAPTAIN?")
     while True:
-        player_name = input("PLEASE ENTER A NAME:\n")
-        if validate_team_name(player_name):
+        player_name = input("PLEASE ENTER A NAME:\n").upper()
+        if check_player_name(player_name):
             break
-    print(f"\nTHE NAME YOU CHOSE IS: {player_name}\n")
+    print(f"\nTHE NAME YOU CHOSE IS: CAPTAIN {player_name}\n")
     print(PHASE)
     time.sleep(1)
     print(' ')
@@ -146,7 +146,7 @@ def place_ship(board):
                     #check if ship overlaps
                         if ship_overlap(board, row, column, orientation, ship_length) == False:
                             print(PHASE)
-                            print("EXCELLENT POSITIONING OF THE SHIP CAPTAIN")
+                            print(f"\nEXCELLENT POSITIONING OF THE SHIP CAPTAIN {player_name}")
                             #place ship
                             if orientation == "H":
                                 for i in range(column, column + ship_length):
@@ -182,13 +182,13 @@ def ship_overlap(board, row, column, orientation, ship_length):
     if orientation == "H":
         for i in range(column, column + ship_length):
             if board[row][i] == "@":
-                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
+                print(f"\nTHE SHIP DOSENT FIT HERE CAPTAIN {player_name} \n")
                 print(PHASE)
                 return True
     else:
         for i in range(row, row + ship_length):
             if board[i][column] == "@":
-                print("THE SHIP DOSENT FIT HERE CAPTAIN \n")
+                print(f"\nTHE SHIP DOSENT FIT HERE CAPTAIN {player_name} \n")
                 print(PHASE)
                 return True
     return False
@@ -274,7 +274,7 @@ def turn(board):
             turn(board)
         elif COMPUTER_BOARD[row][column] == "@":
             board[row][column] = "X"
-            print("WE HIT THEM, GREAT SHOT CAPTAIN")
+            print(f"\nWE HIT THEM, GREAT SHOT CAPTAIN {player_name}")
         else:
             board[row][column] = "-"
             print("WE MISSED, WE WILL GET THEM ON THE NEXT SHOT")
@@ -330,7 +330,7 @@ def start_game():
         print_board(COMPUTER_GUESS_BOARD)
         if hit_count(COMPUTER_GUESS_BOARD) == 17:
             print(
-                "UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN, WE WILL GET THEM \
+                "UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN {player_name}, WE WILL GET THEM \
                 NEXT TIME")
             break
 
@@ -340,7 +340,7 @@ def play_again():
     """
     Asks the player if they want to play again or quit
     """
-    print('\nWOULD YOU LIKE TO PLAY AGAIN?')
+    print('\nWOULD YOU LIKE TO PLAY AGAIN?, CAPTAIN {player_name}')
     answer = input("ENTER Y OR N: \n").upper()
     print(' ')
     while True:
@@ -354,6 +354,7 @@ def play_again():
             print(' ')
             print(PHASE)
             return False
+            welcome_message()
         else:
             print(' ')
             print('PLEASE ENTER Y OR N')
