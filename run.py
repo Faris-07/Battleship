@@ -48,7 +48,7 @@ def welcome_message():
     print("\u001b[32mCARRIER - \u001b[33mBATTLESHIP -\
     \u001b[34mCRUISER - \u001b[35mSUBMARINE - \u001b[36mDESTROYER \
     \u001b[0m")
-    print("EACH PLAYER HAS 17 LIVES, THEY LOSE 1 PER HIT\n")
+    print("EACH PLAYER HAS 17 LIVES, THE FIRST TO STRIKE 17 BLOWS TO THE ENEMYS SHIPS WINS\n")
     time.sleep(5)
     print(PHASE)
 
@@ -71,6 +71,22 @@ def welcome_message():
     print("X IS A HIT/SUNK SHIP")
     time.sleep(5)
     print(PHASE)
+
+
+def name_input():
+    """
+    The name_input function takes input from the user and stores it in a variable that can be used further into the program
+    """
+    print('NAME CAN BE 10 CHARACTERS MAX. LETTERS & NUMBERS')
+    while True:
+        player_name = input('PLEASE ENTER A TEAM NAME:\n')
+        if validate_team_name(player_name):
+            break
+    print(f'\nTHE NAME YOU CHOSE IS: {player_name}\n')
+    print(PHASE)
+    time.sleep(1)
+    print(' ')
+    return player_name
 
 
 def print_board(board):
