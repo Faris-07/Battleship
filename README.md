@@ -9,6 +9,8 @@ carrier (takes 5 spaces on the board), battleship (takes 4 spaces on the board),
 
 The player places their 5 ships on the board and the computer randomly chooses where he wants to put all his ships, Then we duel.
 
+The live link can be found here - [Battleships Game](https://battleships-7.herokuapp.com/)
+
 ![readme hero image](/assets/images/Battleship-home-screen.png)
 
 ## How To Play

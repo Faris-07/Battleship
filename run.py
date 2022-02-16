@@ -367,7 +367,7 @@ def play_again():
             welcome_message()
         elif answer == "N":
             print(' ')
-            print('GOODBYE!')
+            print('GOODBYE!, SEE YOU SOON CAPTAIN')
             print(' ')
             print(PHASE)
             return False
