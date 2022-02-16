@@ -40,15 +40,18 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - Once a all of the inputs are entered and valid the ship is placed on the players board, their board is then printed to them with the placed ship for reference when placing the next. The computers ships are randomly placed on their board before the player places their ships, following the same validation checks.
 
 ![Player board](/assets/images/player-board.png)
-![Player board](/assets/images/place-ship.png)
-![Player board](/assets/images/all-ships-placed.png)
+
+![Player ship](/assets/images/place-ship.png)
+
+![Player placed all ships](/assets/images/all-ships-placed.png)
 
 - The Guess Board
     - Once the ships have been placed on each board the game play begins.
     - The player always goes first, their guess board is printed out to them for reference when entering a row and column, which must pass validation checks if not the user is prompted to enter valid data again. Once a valid input is entered the result of their attack is printed out to them before the guess board is updated and printed out to them again. The computers guess is printed out to the user alongside the computers board of where the player hit for reference to see where there shot landed. Validation checks prevent the user repeating already guessed spots on the board.
     - The sleep method of the time library and phase/line break is used to seperate and emphasize the individual turns. There is a countdown of two seconds before the computer makes their attack and the terminal is updated this also adds more suspense.
 
-![readme hero image]()
+![Guess ship](/assets/images/guess-ship.png)
+![Guess again](/assets/images/guess-again.png)
 
 - Ship Display
     - Ships that haven't been hit are displayed on the player's board as the at sign "@".
