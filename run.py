@@ -2,13 +2,17 @@
 import random
 import time
 
+# Player and computer board variables
 PLAYER_BOARD = [[" "] * 8 for i in range(8)]
 COMPUTER_BOARD = [[" "] * 8 for i in range(8)]
 PLAYER_GUESS_BOARD = [[" "] * 8 for i in range(8)]
 COMPUTER_GUESS_BOARD = [[" "] * 8 for i in range(8)]
 
+# The SHIP_LENGTHS list contains the length of each ship on the board
 SHIP_LENGTHS = [2, 3, 3, 4, 5]
 
+# The letters_conversion dictionary assigns letters to numbers that can be
+# used for ship placements
 letters_conversion = {
     'A': 0,
     'B': 1,
@@ -20,7 +24,7 @@ letters_conversion = {
     'H': 7
 }
 
-
+# The PHASE variable prints "=" 80 times as a line break.
 PHASE = "=" * 80
 
 
@@ -124,6 +128,7 @@ def place_ship(board):
     """
     The place ship function loops throught the lengths of the ships and then
     loops until the ship fits and dosent overlap any other ships on the board
+    and then places the ship.
     """
     #  loop through length of ships
     for ship_length in SHIP_LENGTHS:
@@ -342,7 +347,7 @@ def start_game():
         print_board(COMPUTER_GUESS_BOARD)
         if hit_count(COMPUTER_GUESS_BOARD) == 17:
             print(
-                "UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN {player_name}, WE WILL GET THEM \
+                "UNLUCKY \u001b[31mYOU LOSE\u001b[0m CAPTAIN, WE WILL GET THEM \
                 NEXT TIME")
             break
 
