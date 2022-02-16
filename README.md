@@ -72,7 +72,8 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - The player is them prompted to play again, input validation is used here to ensure a Y or N is entered.
     - If the user inputs with a "y" then the game is started from the beginning, else the player is told goodbye and the program ends.
 
-![readme hero image]()
+![Game play display](/assets/images/result.png)
+![Game play display](/assets/images/end-game.png)
 
 ## Features left to implement
 *There are no features left to implement from the initial scope of my project, however I have some features that I would like to add in the future.*
