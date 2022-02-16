@@ -210,7 +210,7 @@ def user_input(place_ship):
     The user_input function takes input from the user to enter where they want
     to place their ships as well as guessing the computers ships on the board
     """
-    if place_ship:
+    if place_ship == True:
         while True:
             try:
                 orientation = input("Enter orientation (H or V): \n").upper()
