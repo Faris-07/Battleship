@@ -136,7 +136,9 @@ To deploy the project through Heroku I followed these steps:
     - A bug I came across was the players error message for when placing a ship which overlaps over existing ships or dosen't fit the board was being printed when it was the computers turn to place its ships. I fixed it by using a for loop in the players turn of the place_ship function to print the message therefore no message would be printed if the computers ship overlapped or did not fit the board. 
 
 - Remaining Bugs
-    - No bugs remaining
+    - No bugs remaining.
 
 ## Credits
-- When researching on how to use colour in the terminal I came across Haoyi's Programming Blog which showed me how to implement colours in the terminal the link to the blog can be found [here](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html)
+- A special thanks to my mentor Okwudiri Okoro.
+- When researching on how to use colour in the terminal I came across Haoyi's Programming Blog which showed me how to implement colours in the terminal the link to the blog can be found [here](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html).
+- When using the time library I referenced this [article](https://careerkarma.com/blog/python-time/) about the time sleep function.

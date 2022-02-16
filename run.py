@@ -200,11 +200,6 @@ def ship_overlap(board, row, column, orientation, ship_length):
     return False
 
 
-ORIENTATION = ["H", "V"]
-ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
-COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-
-
 def user_input(place_ship):
     """
     The user_input function takes input from the user to enter where they want
