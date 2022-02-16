@@ -58,14 +58,14 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - Letters are used for the column display and numbers for the rows, this allows for easy differentiation when inputting coordinates.
     - The markers that have been used give a good level of contrast and distinction between the different markers and what they represent.  "@" to represent ships, "-" for a miss and "X" for a hit.
 
-![readme hero image]()
+![Ship display](/assets/images/ship-display.png)
 
 - Game Play Display
     - Feedback to the user is provided constantly throught all phases of the game.
     - All sequences are broken down to increase ease of use and clarity. The boards are updated appropriately as well as the hit counter incrementing when required.
     - A consistent use of the sleep method and phase/line breaks is also used throughout to increase ease of use and clarity.
 
-![readme hero image]()
+![Game play display](/assets/images/game-play-display.png)
 
 - Play Again
     - Once all the conditions of an end game have been met, which is a player either computer or user has hit the total hit count of 17, the turn sequence is broken out off, with a win or lose message being displayed.
