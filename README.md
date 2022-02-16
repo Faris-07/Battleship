@@ -29,7 +29,9 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - It also contains the instructions in how to play the game.
     - The player is then prompted for name input, which complies to the validation checks listed. Input is repeated until a valid name is entered.
 
-![readme hero image]()
+![Welcome message](/assets/images/Battleship-home-screen.png)
+![Instructions](/assets/images/Battleship-home-screen.png)
+![Rules](/assets/images/Battleship-home-screen.png)
 
 - The Board
     - Once name input is validated, it is then used to create the player's board, which is displayed to them in the terminal. The user is prompted to place each ship in turn from smallest to largest (2-5), the ship size is displayed to them.
