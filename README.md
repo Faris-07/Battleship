@@ -72,8 +72,8 @@ The player places their 5 ships on the board and the computer randomly chooses w
     - The player is them prompted to play again, input validation is used here to ensure a Y or N is entered.
     - If the user inputs with a "y" then the game is started from the beginning, else the player is told goodbye and the program ends.
 
-![Game play display](/assets/images/result.png)
-![Game play display](/assets/images/end-game.png)
+![Result](/assets/images/result.png)
+![End game](/assets/images/end-game.png)
 
 ## Features left to implement
 *There are no features left to implement from the initial scope of my project, however I have some features that I would like to add in the future.*
@@ -81,6 +81,7 @@ The player places their 5 ships on the board and the computer randomly chooses w
 - Print the Player Board and Computer Board side by side in the terminal, rather than on top of one another.
 - Make a 2 player version of the game.
 - Highlight the win or lose message with more effect.
+- Let the player choose the size of the board.
 
 ## Data Model
 - The project uses the board class as my model. The game creates four boards the first to hold the players guesses the second to display the users board and the other two are the same but for the computers board.
@@ -151,3 +152,5 @@ To deploy the project through Heroku I followed these steps:
 - A special thanks to my mentor Okwudiri Okoro.
 - When researching on how to use colour in the terminal I came across Haoyi's Programming Blog which showed me how to implement colours in the terminal the link to the blog can be found [here](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html).
 - When using the time library I referenced this [article](https://careerkarma.com/blog/python-time/) about the time sleep function.
+- When creating the battleship AI I came across this [stack overflow](https://stackoverflow.com/questions/1631414/what-is-the-best-battleship-ai) post which helped me conceptualize how the AI would work.
+- I also got ideas for some features of the game from other [stack overflow](https://codereview.stackexchange.com/questions/tagged/battleship) posts.
